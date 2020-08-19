@@ -1,0 +1,51 @@
+name:                lc3-vm
+version:             0.1.0.0
+github:              "chrisyunhua/lc3-vm"
+license:             BSD3
+author:              "chrisyuhua"
+maintainer:          "chrisyunhua@gmail.com"
+copyright:           "2020 chrisyunhua"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/chrisyunhua/lc3-vm#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- vector
+- bytestring
+- binary
+
+library:
+  source-dirs: src
+
+executables:
+  lc3-vm-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - lc3-vm
+
+tests:
+  lc3-vm-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - lc3-vm
